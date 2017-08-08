@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        html{
+            height:1000px;
+        }
+        /*body{
+            height:60px;
+        }*/
+        #goTop{
+            width:30px;
+            height:30px;
+            background:#ff0000;
+            position:fixed;
+            right:20px;
+            bottom:20px;
+        }
+    </style>
+</head>
+<body>
+  hahaha
+   <div id="goTop">GO!</div>
+   <script>
+    var goTop=document.getElementById("goTop");
+    goTop.onclick=function(){
+        var scrollTop=document.documentElement.scrollTop||document.body.scrollTop;
+        var timer=setInterval(function(){
+            window.scrollTo(0,scrollTop-=10);
+            if(scrollTop<=0)
+            {
+                clearInterval(timer);
+            }
+        },30);
+    }
+   </script>
+</body>
+</html>
