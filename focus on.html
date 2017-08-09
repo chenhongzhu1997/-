@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>getFocus</title>
+    <script src="jquery-1.12.4.js"></script>
+    <style>
+        input{
+            display:block;
+            margin-bottom:10px;
+        }
+        #textarea,input{
+            border: 1px solid #888;
+        }
+        label{
+            float:left;
+            font-size:12px;
+        }
+
+
+    </style>
+</head>
+<body>
+<form action="" id="fieldset">
+    <fieldset>
+        <legend>个人基本信息</legend>
+        <label for="username">姓名：</label>
+        <input type="text" id="username">
+        <label for="password">密码：</label>
+        <input type="text" id="password">
+        <div>
+        <label for="textarea">详细信息：</label>
+        <textarea  id="textarea" rows="3" cols="20"></textarea>
+        </div>
+    </fieldset>
+</form>
+<script>
+    $(function(){
+        var $input=$(":input");
+        var $area=$("#textarea");
+        $input.on("click",function(){
+            $(this).focus(function(){
+                $(this).css("background","#fcc").siblings().blur().css("background","transparent");
+                $area.blur().css("background","transparent");
+            });
+        });
+        $area.on("click",function(){
+            $area.focus(function(){
+                $(this).css("background","#fcc");
+                $input.blur().css("background","transparent");
+            });
+        });
+    });
+</script>
+</body>
+</html>
