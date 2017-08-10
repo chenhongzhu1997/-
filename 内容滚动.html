@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+    *{
+    padding:0;
+    margin:0;
+    }
+    #parent{
+
+    width:500px;
+    margin-left:100px;
+    margin-top:50px;
+    }
+    #up,#down{
+    border:1px solid;
+    margin-right:10px;
+    float:left;
+    width:30px;
+    height:30px;
+    }
+    #str{
+    overflow:hidden;
+    }
+    #textarea{
+    border:1px solid;
+    height:200px;
+    width:300px
+    }
+    </style>
+</head>
+<body>
+<div id="parent">
+    <div id="str">
+        <button id="up">向上</button>
+        <button id="down">向下</button>
+    </div>
+    <textarea id="textarea" cols="50" rows="30">多行文本框高度变化.多行文本框高度变化.多行文本框高度变化.多行文本框高度变化.多行文本框高度变化.多行文本框高度变化.多行文本框高度变化.多行文本框高度变化.多行文本框高度变化.多行文本框高度变化多行文本框高度变化多行文本框高度变化多行文本框高度变化多行文本框高度变化多行文本框高度变化多行文本框高度变化多行文本框高度变化多行文本框高度变化多行文本框高度变化多行文本框高度变化多行文本框高度变化多行文本框高度变化多行文本框高度变化多行文本框高度变化多行文本框高度变化多行文本框高度变化多行文本框高度变化多行文本框高度变化多行文本框高度变化多行文本框高度变化多行文本框高度变化多行文本框高度变化多行文本框高度变化多行文本框高度变化多行文本框高度变化多行文本框高度变化多行文本框高度变化多行文本框高度变化多行文本框高度变化
+        </textarea>
+    <script src="jquery-1.12.4.js"></script>
+    <script>
+        $(function(){
+            var $up=$("#up");
+            var $down=$("#down");
+            var $area=$("#textarea");
+            $up.on("click",function(){
+               $area.scrollTop($area.scrollTop()-10);
+            });
+            $down.on("click",function(){
+                $area.scrollTop($area.scrollTop()+10);
+            });
+        });
+    </script>
+</div>
+</body>
+</html>

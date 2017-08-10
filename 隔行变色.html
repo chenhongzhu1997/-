@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+    table{
+        border:0;
+        border-collapse:collapse;
+        margin-left:0;
+        width:400px;
+    }
+    tr{
+        height:20px;
+    }
+    td{
+        width:100px;
+        line-height:20px;
+        font-size:12px;
+    }
+    th{
+        font-size:12px;
+        text-align:left;
+        border-bottom:1px solid #000;
+    }
+
+</style>
+</head>
+<body>
+    <table id="form">
+        <tr><th> </th><th>姓名</th><th>性别</th><th>暂住地</th></tr>
+        <tr>
+            <td><input type="checkbox" name="student" value="1"  ></td>
+            <td>张山</td><td>男</td><td>浙江宁波</td></tr>
+        <tr>
+            <td><input type="checkbox" name="student" value="2" ></td>
+            <td>问问</td><td>女</td><td>哈尔滨</td></tr>
+        <tr>
+            <td><input type="checkbox" name="student" value="3"></td>
+            <td>微微</td><td>女</td><td>北京</td>
+        </tr>
+        <tr>
+            <td><input type="checkbox" name="student" value="4" ></td>
+            <td>路与</td><td>男</td><td>上海</td>
+        </tr>
+        <tr>
+            <td><input type="checkbox" name="student" value="5" ></td>
+            <td>萱萱</td><td>女</td><td>山东青岛</td>
+        </tr>
+        <tr>
+            <td><input type="checkbox" name="student" value="6" ></td>
+            <td>张旭</td><td>男</td><td>江苏</td>
+        </tr>
+    </table>
+    <script src="jquery-1.12.4.js"></script>
+    <script>
+//        $(function(){
+//           $("tr:even").css("background","#00f");
+//           $("tr:odd").css("background","#f00");
+//           $("tr:eq(0)").css("background","transparent").css("font","bold 12px/17px Arial");
+//        });
+//加亮包含指定文字的行
+//        $(function(){
+//            $("tr:contains('北京')").css("background","#f00");
+//        });
+//选中本行单选按钮
+//        $(function(){
+//            $(":input").on("click",function(){
+//              if( $(":input[name='student']").val()!=$(this).val()){
+//                  $(":input").parent().parent().css("background","transparent");
+//              }
+//                $(":input").parent().parent().css("background","transparent");
+//                $(this).parent().parent().css("background","red");
+//            });
+//
+//        });
+//选中本行复选按钮
+            $(function(){
+            $(":input").on("click",function(){
+                if($(this).prop('checked')==false){
+                    $(this).parent().parent().css("background","transparent");
+                }
+                else {
+                    $(this).parent().parent().css("background", "red");
+
+                }
+            });
+
+        });
+    </script>
+</body>
+</html>

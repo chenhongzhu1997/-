@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            padding:0;
+            margin:0;
+        }
+        .form1{
+            margin:30px;
+        }
+        label{
+            font-size:12px;
+        }
+        #submit,#reset{
+            width:40px;
+            height:20px;
+            cursor:pointer;
+        }
+        #str{
+            margin-left:50px;
+        }
+        #name{
+            margin-left:12px;
+        }
+        .strong,.strong1{
+            width:200px;
+            padding:2px;
+            margin:2px;
+            font-size:12px;
+        }
+        /*.high{*/
+            /*color:red;*/
+        /*}*/
+        .onError{
+            background:#FFE0E9 url(img/reg3.gif) no-repeat 0 center;
+            padding-left:25px;
+        }
+        .onSuccess{
+            background:#E9FBEB url(img/reg4.gif) no-repeat 0 center;
+            padding-left:25px;
+        }
+    </style>
+</head>
+<body>
+<form action="#" class="form1">
+    <div id="name">
+        <label for="username" >用户名：</label>
+        <input type="text" id="username" class="required">
+    </div>
+    <div id="email">
+        <label for="myemail">电子邮箱：</label>
+        <input type="text" id="myemail" class="required">
+    </div>
+    <div id="content">
+        <label for="all">个人资料：</label>
+        <input type="text" id="all">
+    </div>
+    <div id="str">
+        <button id="submit">提交</button>
+        <button id="reset">重置</button>
+    </div>
+</form>
+<script src="jquery-1.12.4.js"></script>
+<script>
+    $(function(){
+        var $username=$("#username");
+        var $onerror=0;
+        var $required=$("<strong class='high'>*</strong>");
+        $required.insertAfter($(":input.required"));
+        $username.on("keyup",function(){
+            $(this).focus();
+            if(this.value==""||this.value.length<6){
+                $(this).parent().children(".strong1").remove();
+                $(this).parent().children(".strong").remove();
+                var error="请输入至少六位的用户名";
+                $(this).next().after("<span class='strong onError'>"+error+"</span>");
+            }
+            else if(this.value.length==6){
+                var right="正确";
+                $onerror=1;
+                $(this).parent().children(".strong1").remove();
+                $(this).parent().children(".strong").remove();
+                $(this).next().after("<span class='strong1 onSuccess'>"+right+"</span>");
+            }
+
+        });
+        $("#submit").on("click",function(){
+            if($onerror==1)
+            {
+                alert("您的邮件已到邮箱，请注意查收");
+            }
+        });
+        $("#reset").on("click",function(){
+            $username.empty();
+            $("#myemail").empty();
+            $("#all").empty();
+
+        });
+
+
+    });
+</script>
+</body>
+</html>
