@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        table{
+            border:0;
+            border-collapse:collapse;
+            margin-left:0;
+            width:400px;
+        }
+        tr{
+            height:20px;
+        }
+        td{
+            width:100px;
+            line-height:20px;
+            font-size:12px;
+        }
+        th{
+            font-size:12px;
+            text-align:left;
+            border-bottom:1px solid #000;
+        }
+
+    </style>
+</head>
+<body>
+<div id="choose">
+    <label for="search">筛选：</label>
+    <input type="text" id="search">
+</div>
+<table id="form">
+    <tr><th>姓名</th><th>性别</th><th>暂住地</th></tr>
+    <tbody>
+    <tr>
+        <td>张山</td><td>男</td><td>浙江宁波</td></tr>
+    <tr>
+        <td>问问</td><td>女</td><td>哈尔滨</td></tr>
+    <tr>
+        <td>微微</td><td>女</td><td>北京</td>
+    </tr>
+    <tr>
+        <td>路与</td><td>男</td><td>上海</td>
+    </tr>
+    <tr>
+        <td>萱萱</td><td>女</td><td>山东青岛</td>
+    </tr>
+    <tr>
+        <td>张旭</td><td>男</td><td>江苏</td>
+    </tr>
+       </tbody>
+</table>
+<script src="jquery-1.12.4.js"></script>
+<script>
+    $(function(){
+        $(":input").on("keyup",function(){
+            $("table tbody tr").hide();
+            $("table tbody tr").filter(":contains('"+$(this).val()+"')").show();
+        });
+    });
+</script>
+</body>
+</html>

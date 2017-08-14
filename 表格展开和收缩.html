@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        table{
+            border:0;
+            border-collapse:collapse;
+            margin-left:0;
+            width:400px;
+        }
+        tr{
+            height:20px;
+        }
+        td{
+            width:100px;
+            line-height:20px;
+            font-size:12px;
+        }
+        th{
+            font-size:12px;
+            text-align:left;
+            border-bottom:1px solid #000;
+        }
+        .menu1,.menu2,.menu3{
+            background:yellow;
+        }
+    </style>
+</head>
+<body>
+<table id="form">
+    <tr><th>姓名</th><th>性别</th><th>暂住地</th></tr>
+
+    <tr class="menu1" ><td>菜单1</td><td></td><td></td></tr>
+    <tr class="term1"><td>张山</td><td>男</td><td>浙江宁波</td></tr>
+    <tr class="term1"><td>问问</td><td>女</td><td>哈尔滨</td></tr>
+    <tr class="menu2" ><td>菜单2</td><td></td><td></td></tr>
+    <tr class="term2"><td>微微</td><td>女</td><td>北京</td></tr>
+    <tr class="term2"><td>路与</td><td>男</td><td>上海</td></tr>
+    <tr class="menu3" ><td>菜单3</td><td></td><td></td></tr>
+    <tr class="term3"><td>萱萱</td><td>女</td><td>山东青岛</td></tr>
+    <tr class="term3"><td>张旭</td><td>男</td><td>江苏</td></tr>
+
+</table>
+<script src="jquery-1.12.4.js"></script>
+<script>
+$(function(){
+    $(".menu1").on("click",function(){
+      $(".term1").slideToggle();
+//        $(this).toggleClass("selected");
+//        if($(this).selected){
+//            $(".term1").slideUp();
+//            $(this).css("background","orange");
+//        }
+//        else{
+//            $(".term1").slideDown();
+//            $(this).css("background","yellow");
+//        }
+//        if($(".term1").slideUp()){
+//            $(".menu1").css("background","orange");
+//        }
+//        else if($(".term1").slideDown()){
+//            $(".menu1").css("background","yellow");
+//        }
+    });
+    $(".menu2").on("click",function(){
+        $(".term2").slideToggle();
+//        if($(".term2").slideUp()){
+//            $(".menu2").css("background","orange");
+//        }
+//        else if($(".term2").slideDown()){
+//            $(".menu2").css("background","yellow");
+//        }
+    });
+    $(".menu3").on("click",function(){
+        $(".term3").slideToggle();
+//        if($(".term3").slideUp()){
+//            $(".menu3").css("background","orange");
+//        }
+//        else if($(".term3").slideDown()){
+//            $(".menu3").css("background","yellow");
+//        }
+    });
+});
+</script>
+</body>
+</html>
