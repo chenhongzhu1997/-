@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            padding:0;
+            margin:0;
+        }
+        #small{
+            position:relative;
+            height: 400px;
+            width:400px;
+        }
+        #small img{
+            display:block;
+        }
+        #small,#big{
+            float:left;
+        }
+        #drag{
+            height:200px;
+            width:200px;
+            position:absolute;
+            top:0;
+            left:0;
+            background:#ccc;
+            opacity:.6;
+            filter:alpha(opacity=60);
+            display:none;
+        }
+        #big{
+            height:400px;
+            width:400px;
+            overflow:hidden;
+            position:relative;
+            border: 1px solid;
+            /*display:none;*/
+        }
+
+        #big-pic{
+            position:absolute;
+            top:0;
+            left:0;
+        }
+    </style>
+</head>
+<body>
+<div id="small">
+    <img src="1.jpg" alt="">
+    <div id="drag"></div>
+</div>
+<div id="big">
+    <img src="2.jpg" alt="" id="big-pic">
+</div>
+<script src="jquery-1.12.4.js"></script>
+<script>
+    //函数的立即调用
+    $(function(){
+        var $oSmall=$("#small");
+        var $oDrag=$("#drag");
+        var $oBig=$("#big");
+        var $pic=$("#big-pic");
+        $oSmall.on("mouseenter",function(){
+            $oDrag.css("display","block");
+            $oBig.css("display","block");
+        });
+        $oSmall.on("mouseleave",function(){
+//            $oDrag.css("display","none");
+//            $oBig.css("display","none");
+        });
+        $oSmall.on("mousemove",function(e){
+//            e=e||window.event;
+            var $left=e.pageX-$oDrag.width()/2;
+            var $top=e.pageY-$oDrag.height()/2;
+            var $xMax=$oSmall.width()-$oDrag.width();
+            var $yMax=$oSmall.height()-$oDrag.height();
+            if($top<0){
+                $top=0;
+            }
+            if($left<0){
+                $left=0;
+            }
+            if($left>$xMax){
+                $left=$xMax;
+            }
+            if($top>$yMax){
+                $top=$yMax;
+            }
+            $oDrag.offset({
+                top: $top,
+                left: $left
+            });
+            var $bigX=$left/$xMax;
+            var $bigY=$top/$yMax;
+            console.log($bigX);
+            console.log($pic.width()-$oBig.width());
+            $pic.css({
+                left:-$bigX*($pic.width()-$oBig.width()),
+                top:-$bigY*($pic.height()-$oBig.height())
+            });
+
+        });
+    });
+</script>
+</body>
+</html>
