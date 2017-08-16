@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>五环</title>
+    <style>
+        .circle,.circle::after{
+            width:200px;
+            height:200px;
+            border:6px solid #000;
+            border-radius:50%;
+            position:absolute;
+            left:0;
+            top:0;
+        }
+        .circle::after{
+            content:"";
+            top:-6px;
+            left:-6px;
+
+        }
+        .blue{
+            border-color:blue;
+            position:absolute;
+            left:0;
+            top:0;
+        }
+        .blue.circle::after{
+            border-color:blue;
+            z-index:1;
+            border-bottom:transparent;
+        }
+        .black{
+            border-color:black;
+            position:absolute;
+            left:214px;
+            top:0;
+        }
+        .black.circle::after{
+            z-index:1;
+            border-color:black;
+            border-left-color:transparent;
+
+        }
+        .red{
+            border-color:red;
+            position:absolute;
+            left:427px;
+            top:0;
+        }
+        .red.circle::after{
+            border-color:red;
+           border-left-color:transparent;
+            z-index:2;
+
+        }
+        .yellow{
+            border-color:yellow;
+            position:absolute;
+            left:100px;
+            top:100px;
+        }
+        .yellow.circle::after{
+            border-color:yellow;
+        }
+        .green{
+            border-color:green;
+            position:absolute;
+            top:100px;
+            left:318px;
+        }
+        .green.circle::after{
+            border-color:green;
+            border-top-color:transparent;
+            z-index:1;
+        }
+    </style>
+</head>
+<body>
+    <div class="circle blue"></div>
+    <div class="circle black"></div>
+    <div class="circle red"></div>
+    <div class="circle yellow"></div>
+    <div class="circle green"></div>
+</body>
+</html>
