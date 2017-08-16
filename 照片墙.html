@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            padding:0;
+            margin:0;
+        }
+        #container{
+            position:relative;
+            left:350px;
+            top:150px;
+        }
+        #container img{
+            position:absolute;
+            left:0;
+            top:0;
+            border:10px solid #ccc;
+            box-shadow:5px 5px 5px rgba(50,50,50,.6);
+            transition:all 1s linear;
+        }
+        #container img:first-child{
+            transform:rotate(30deg);
+        }
+        #container img:last-child{
+            transform:rotate(-30deg);
+        }
+        #container img:hover{
+            box-shadow:10px 10px 5px rgba(50,50,50,.6);
+            z-index:1;
+            transform:scale(1.5);
+        }
+    </style>
+</head>
+<body>
+<div id="container">
+    <img src="img01.jpg" alt="">
+    <img src="img02.jpg" alt="">
+</div>
+</body>
+</html>

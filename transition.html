@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            padding:0;
+            margin:0;
+        }
+        #div1{
+            height:100px;
+            width:100px;
+            background:#f00;
+            font-size:12px;
+            transition:all 2s ease;
+
+        }
+        /*#div1:hover{*/
+            /*width:500px;*/
+        /*}*/
+    </style>
+</head>
+<body>
+    <div id="div1">div1</div>
+    <script src="jquery-1.12.4.js"></script>
+    <script>
+        var oDiv1=document.getElementById("div1");
+        oDiv1.onclick=function(){
+            oDiv1.style.height="200px";
+            oDiv1.style.width="200px";
+            oDiv1.style.background="#0f0";
+            oDiv1.style.fontSize="50px";
+
+        }
+    </script>
+</body>
+</html>

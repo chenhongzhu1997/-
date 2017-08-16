@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            padding:0;
+            margin:0;
+        }
+        #container{
+            height:300px;
+            width:300px;
+            border:2px solid;
+            border-radius:50%;
+            margin:50px auto;
+            position:relative;
+        }
+        #circle li{
+            height:6px;
+            width:4px;
+            position:absolute;
+            background:#000;
+            list-style:none;
+            top:0;
+            left:150px;
+            transform-origin:0 150px;
+        }
+        #circle li:nth-child(5n+1){
+            height:10px;
+        }
+        #hour{
+            height:20px;
+            width:4px;
+            background:#000;
+            position:absolute;
+            top:130px;
+            left:148px;
+            transform-origin:bottom;
+        }
+        #minute{
+            height:40px;
+            width:4px;
+            background:#ccc;
+            position:absolute;
+            top:110px;
+            left:148px;
+            transform-origin:bottom;
+        }
+        #second{
+            height:60px;
+            width:4px;
+            background:#f00;
+            position:absolute;
+            top:90px;
+            left:148px;
+            transform-origin:bottom;
+        }
+    </style>
+</head>
+<body>
+<div id="container">
+    <ul id="circle">
+    </ul>
+    <div id="hour"></div>
+    <div id="second"></div>
+    <div id="minute"></div>
+</div>
+<script src="jquery-1.12.4.js"></script>
+<script>
+    (function(){
+        var oCircle=document.getElementById("circle");
+        var oHour=document.getElementById("hour");
+        var oSecond=document.getElementById("second");
+        var oMinute=document.getElementById("minute");
+        for(var i=1;i<=60;i++){
+            oCircle.innerHTML+="<li style='transform:rotate("+(i-1)*6+"deg)'></li>";
+        }
+        run();
+        setInterval(function(){
+            run();
+        },1000);
+        function run() {
+            var now = new Date();
+            var nowSecond = now.getSeconds();
+            var nowMinute = now.getMinutes() + nowSecond / 60;
+            var nowHour = now.getHours() + nowMinute / 60;
+
+
+            oHour.style.transform = "rotate(" + nowHour * 30 + "deg)";
+            oMinute.style.transform = "rotate(" + nowMinute * 6 + "deg)";
+            oSecond.style.transform = "rotate(" + nowSecond * 6 + "deg)";
+        }
+    })();
+</script>
+</body>
+</html>
