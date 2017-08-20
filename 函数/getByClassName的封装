@@ -1,0 +1,22 @@
+/**
+     * 用来根据class查找元素
+     * @param className 要查找的class名称
+     * @param context 要搜索的范围
+     * @return {Array}
+     */
+    function getByClass(className, context) {
+        context = context || document;
+        if (context.getElementsByClassName) {
+            return context.getElementsByClassName(className);
+        } else {
+            var result = [];
+            var arr = context.getElementsByTagName('*');
+            for (var i = 0; i < arr.length; i++) {
+                //arr[i].className = "aa bb"
+                if (arr[i].className.indexOf(className) != -1) {
+                    result.push(arr[i]);
+                }
+            }
+            return result;
+        }
+    }
