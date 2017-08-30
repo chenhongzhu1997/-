@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <style>
+        *{
+            padding:0;
+            margin:0;
+        }
+        h3{
+            height:100px;
+            width:960px;
+            background:#ccc;
+            margin:20px auto;
+            text-align:center;
+            line-height:100px;
+        }
+        #banner{
+            width:960px;
+            margin:0 auto;
+        }
+        #banner img{
+            width:960px;
+            display:block;
+        }
+        #content{
+            width:960px;
+            height:300px;
+            margin:0 auto;
+
+        }
+        #left,#right{
+            display:table;
+            text-align:center;
+            height:300px;
+            float:left;
+
+        }
+        #left{
+            width:600px;
+            background:#0f0;
+            margin-right:30px;
+        }
+        #right{
+            width:330px;
+            background:#ff0;
+        }
+        #left p,#right p{
+            display:table-cell;
+            vertical-align:middle;
+        }
+        #footer{
+           clear:both;
+        }
+        @media(max-width:959px){
+            h3{
+                width:100%;
+            }
+            #banner img{
+                width:100%;
+            }
+            #left{
+                width:56%;
+                margin-right:2%;
+            }
+            #right{
+                width:42%;
+            }
+            #content{
+                width:100%;
+            }
+            #banner{
+                width:100%;
+            }
+        }
+        @media(max-width:479px){
+                #left,#right{
+                    width:100%;
+                }
+        }
+    </style>
+</head>
+<body>
+<div id="header">
+    <h3>页头</h3>
+</div>
+<div id="nav">
+    <h3>导航</h3>
+</div>
+<div id="banner">
+    <img src="01.jpg" alt="">
+</div>
+<div id="content">
+    <div id="left">
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sem erat, egestas quis luctus ut, rhoncus vitae risus. Integer venenatis libero sit amet sapien dictum, quis bibendum mi volutpat. Cras pretium quam quis magna facilisis, eget feugiat nisi lacinia.</p>
+    </div>
+    <div id="right">
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sem erat, egestas quis luctus ut, rhoncus vitae risus. Integer venenatis libero sit amet sapien dictum, quis bibendum mi volutpat. Cras pretium quam quis magna facilisis, eget feugiat nisi lacinia.</p>
+    </div>
+</div>
+<div id="footer">
+    <h3>页脚</h3>
+</div>
+
+
+
+</body>
+</html>
